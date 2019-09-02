@@ -4,6 +4,7 @@ import TextInput from '../../components/TextInput/TextInput';
 import BaseButton from '../../components/BaseButton/BaseButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { toast } from 'react-toastify';
+import axios from 'axios';
 
 const TheLoginForm = () => {
 
@@ -44,9 +45,23 @@ const TheLoginForm = () => {
     // TODO: Start login attempt here!
     setIsLoading(true);
     setIsLoginDisabled(true);
-    toast("Success Notification !", {
-        position: toast.POSITION.TOP_CENTER
-    });
+
+    axios.post(`${process.env.REACT_APP_API_URL}/authenticate`, {
+      email: 'test',
+      password: '123asdasd'
+    })
+    .then(res => {
+      setIsLoading(false);
+      console.log(res);
+    })
+    .catch(err => {
+      console.log(err.response.data.message)
+      toast.error(err.response.data.message, {
+          position: toast.POSITION.TOP_CENTER
+      });
+      setIsLoading(false);
+      setIsLoginDisabled(false);
+    })
   }
 
   // Checks if we should display the loading spinner.
