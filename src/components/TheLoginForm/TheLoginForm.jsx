@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import TextInput from '../../components/TextInput/TextInput';
 import BaseButton from '../../components/BaseButton/BaseButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { toast } from 'react-toastify';
 
 const TheLoginForm = () => {
 
@@ -43,6 +44,9 @@ const TheLoginForm = () => {
     // TODO: Start login attempt here!
     setIsLoading(true);
     setIsLoginDisabled(true);
+    toast("Success Notification !", {
+        position: toast.POSITION.TOP_CENTER
+    });
   }
 
   // Checks if we should display the loading spinner.
