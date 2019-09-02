@@ -2,7 +2,15 @@ import React from 'react';
 import './TextInput.scss';
 
 let getInputClasses = (props) => {
-  return `${props.variant}`;
+  let classString = '';
+  classString += `${props.variant} `;
+
+  // if loading, set the disabled class.
+  if (props.isLoading){
+    classString += 'disabled ';
+  }
+
+  return classString;
 };
 
 const TextInput = (props) => (
@@ -13,6 +21,7 @@ const TextInput = (props) => (
       type={props.type}
       placeholder={props.placeholder}
       onChange={props.onChange}
+      disabled={props.disabled}
     />
   </div>
 );
