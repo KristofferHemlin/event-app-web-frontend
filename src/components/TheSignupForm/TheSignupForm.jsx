@@ -10,7 +10,6 @@ const TheSignupForm = () => {
     let values = [...fields];
     values[i].value = event.target.value;
     setFields(values);
-    console.log(values);
   };
 
   let [fields, setFields] = useState([
