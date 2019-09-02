@@ -1,15 +1,15 @@
 import React from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faUserEdit } from '@fortawesome/free-solid-svg-icons'
+import { faUserEdit, faSpinner } from '@fortawesome/free-solid-svg-icons'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 // Pages
 import LoginPage from './views/LoginPage/LoginPage';
 import SignupPage from './views/SignupPage/SignupPage';
 import ForgottenPassword from './views/ForgottenPassword/ForgottenPassword';
-import Dashboard from './views/Dashboard/Dashboard';
 
-library.add(faUserEdit);
+
+library.add(faUserEdit, faSpinner);
 
 function App() {
   return (
