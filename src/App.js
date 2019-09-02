@@ -1,24 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faUserEdit } from '@fortawesome/free-solid-svg-icons'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+// Pages
+import LoginPage from './views/LoginPage/LoginPage';
+import SignupPage from './views/SignupPage/SignupPage';
+import Dashboard from './views/Dashboard/Dashboard';
+
+library.add(faUserEdit);
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Route exact path="/" component={LoginPage}></Route>
+        <Route path="/signup" component={SignupPage}></Route>
+        <Route path="/dashboard" component={Dashboard}></Route>
+      </Router>
     </div>
   );
 }

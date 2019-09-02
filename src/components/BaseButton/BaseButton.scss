@@ -1,0 +1,183 @@
+.btn {
+  font-size: 16px;
+  margin: 15px;
+  border-radius: 3px;
+
+  &:disabled {
+    opacity: 0.6;
+  }
+
+  &.sm {
+    padding: 5px;
+  }
+
+  &.md {
+    padding: 10px;
+  }
+
+  &.xl {
+    padding: 15px;
+  }
+
+  &.full {
+    margin: 15px 0px;
+    padding: 15px;
+    width: 100%;
+  }
+
+  &.default {
+    color: #fff;
+
+    &.filled {
+      border: none;
+      background-color: #4b4949;
+
+      &:active {
+        background-color: darken(#4b4949, 10%);
+      }
+    }
+
+    &.frame {
+      border-color: #4b4949;
+      background-color: rgba(106, 152, 215, 0);
+      color: #4b4949;
+
+      &:active {
+        color: darken(#4b4949, 10%);;
+        border-color: darken(#4b4949, 10%);
+      }
+    }
+  }
+
+  &.subtle {
+    color: #fff;
+    transition: 0.5s all;
+
+    &.filled {
+      border: none;
+      background-color: #9f9f9f;
+
+      &:hover {
+        background-color: #c8c8c8;
+      }
+
+      &:active {
+        background-color: darken(#9f9f9f, 10%);
+      }
+    }
+
+    &.frame {
+      border-color: #9f9f9f;
+      background-color: rgba(106, 152, 215, 0);
+      color: #9f9f9f;
+
+      &:hover {
+        color: #c8c8c8;
+        border-color: #c8c8c8;
+      }
+
+      &:active {
+        color: darken(#9f9f9f, 10%);;
+        border-color: darken(#9f9f9f, 10%);
+      }
+    }
+  }
+
+  &.success {
+    color: #fff;
+
+    &.filled {
+      border: none;
+      background-color: #3eb350;
+
+      &:active {
+        background-color: darken(#3eb350, 10%);
+      }
+    }
+
+    &.frame {
+      border-color: #3eb350;
+      background-color: rgba(106, 152, 215, 0);
+      color: #3eb350;
+
+      &:active {
+        color: darken(#3eb350, 10%);;
+        border-color: darken(#3eb350, 10%);
+      }
+    }
+  }
+
+  &.warning {
+    color: #fff;
+
+    &.filled {
+      border: none;
+      background-color: #f6cb5c;
+
+      &:active {
+        background-color: darken(#f6cb5c, 10%);
+      }
+
+    }
+
+    &.frame {
+      border-color: #f6cb5c;
+      background-color: rgba(106, 152, 215, 0);
+      color: #f6cb5c;
+
+      &:active {
+        color: darken(#f6cb5c, 10%);;
+        border-color: darken(#f6cb5c, 10%);
+      }
+    }
+  }
+
+  &.primary {
+    color: #fff;
+
+    &.filled {
+      border: none;
+      background-color: #427ac3;
+
+      &:active {
+        background-color: darken(#427ac3, 10%);
+      }
+    }
+
+    &.frame {
+      border-color: #427ac3;
+      background-color: rgba(106, 152, 215, 0);
+      color: #427ac3;
+
+      &:active {
+        color: darken(#427ac3, 10%);
+        border-color: darken(#427ac3, 10%);
+      }
+    }
+  }
+
+  &.danger {
+    color: #fff;
+
+    &.filled {
+      border: none;
+      background-color: #e04d4d;
+
+      &:active {
+        background-color: darken(#e04d4d, 10%);
+      }
+    }
+
+    &.frame {
+      border-color: #e04d4d;
+      background-color: rgba(106, 152, 215, 0);
+      color: #e04d4d;
+
+      &:active {
+        color: darken(#e04d4d, 20%);
+        border-color: darken(#e04d4d, 20%);
+      }
+    }
+  }
+
+}

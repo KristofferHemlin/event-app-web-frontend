@@ -1,0 +1,40 @@
+.text-input {
+  margin: 10px 0px;
+  display: flex;
+  flex-direction: column;
+
+  input {
+    border-radius: 3px;
+    padding: 15px;
+    font-size: 16px;
+  }
+
+  label {
+    padding: 10px 0px;
+  }
+
+  &.subtle {
+    label {
+      color: darken(#9f9f9f, 40%);;
+    }
+
+    input {
+      color: darken(#9f9f9f, 80%);
+      border: 1px solid #9f9f9f;
+    }
+
+  }
+
+  &.login-special {
+
+    label{
+      color: #fff;
+    }
+
+    input {
+      background-color: rgba(30, 39, 50, 0.8);
+      border: 1px solid #34C5FF;
+      color: #fff;
+    }
+  }
+}
