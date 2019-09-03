@@ -57,6 +57,7 @@ const TheLoginForm = withRouter(({ history }) => {
     })
     .then(res => {
       setIsLoading(false);
+      setIsLoginDisabled(false);
       console.log(res);
 
       // Sets our access JWT token as a header.
