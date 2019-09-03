@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import LoginPage from './views/LoginPage/LoginPage';
 import SignupPage from './views/SignupPage/SignupPage';
 import ForgottenPassword from './views/ForgottenPassword/ForgottenPassword';
+import Dashboard from './views/Dashboard/Dashboard';
 
 // Toast
 import { ToastContainer, toast } from 'react-toastify';
@@ -23,6 +24,7 @@ function App() {
         <Route exact path="/" component={LoginPage}></Route>
         <Route path="/signup" component={SignupPage}></Route>
         <Route path="/forgotten-password" component={ForgottenPassword}></Route>
+        <Route path="/dashboard" component={Dashboard}></Route>
       </Router>
     </div>
   );
