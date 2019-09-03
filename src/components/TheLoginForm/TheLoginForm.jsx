@@ -55,10 +55,16 @@ const TheLoginForm = () => {
       console.log(res);
     })
     .catch(err => {
-      console.log(err.response.data.message)
-      toast.error(err.response.data.message, {
-          position: toast.POSITION.TOP_CENTER
-      });
+
+      if(!err.response){
+        toast.error('Could not log you in at this moment, please try again later.', {
+            position: toast.POSITION.TOP_CENTER
+        });
+      } else {
+        toast.error(err.response.data.message, {
+            position: toast.POSITION.TOP_CENTER
+        });
+      }
       setIsLoading(false);
       setIsLoginDisabled(false);
     })
