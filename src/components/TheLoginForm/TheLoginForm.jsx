@@ -5,8 +5,9 @@ import BaseButton from '../../components/BaseButton/BaseButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { toast } from 'react-toastify';
 import axios from 'axios';
+import { withRouter, Link } from 'react-router-dom'
 
-const TheLoginForm = () => {
+const TheLoginForm = withRouter(({ history }) => {
 
   let [isLoginDisabled, setIsLoginDisabled] = useState(true);
   let [isLoading, setIsLoading] = useState(false);
@@ -42,17 +43,26 @@ const TheLoginForm = () => {
   };
 
   let handleButtonClick = () => {
-    // TODO: Start login attempt here!
     setIsLoading(true);
     setIsLoginDisabled(true);
 
+    // Set up login request body.
+    let accountName = fields.find(input => input.key === 'accountName').value;
+    let accountPassword = fields.find(input => input.key === 'accountPassword').value;
+
+    // Start login attempt.
     axios.post(`${process.env.REACT_APP_API_URL}/authenticate`, {
-      email: 'test',
-      password: '123asdasd'
+      email: accountName,
+      password: accountPassword,
     })
     .then(res => {
       setIsLoading(false);
       console.log(res);
+
+      // Sets our access JWT token as a header.
+      axios.defaults.headers.common['Authorization'] = res.data.token;
+
+      history.push('/dashboard');
     })
     .catch(err => {
 
@@ -65,6 +75,7 @@ const TheLoginForm = () => {
             position: toast.POSITION.TOP_CENTER
         });
       }
+
       setIsLoading(false);
       setIsLoginDisabled(false);
     })
@@ -106,6 +117,6 @@ const TheLoginForm = () => {
       </div>
     </div>
   );
-};
+});
 
 export default TheLoginForm;
