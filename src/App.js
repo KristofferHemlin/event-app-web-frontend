@@ -9,6 +9,9 @@ import SignupPage from './views/SignupPage/SignupPage';
 import ForgottenPassword from './views/ForgottenPassword/ForgottenPassword';
 import Dashboard from './views/Dashboard/Dashboard';
 
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import PublicRoute from './components/PublicRoute/PublicRoute';
+
 // Toast
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -21,10 +24,38 @@ function App() {
     <div className="App">
       <ToastContainer/>
       <Router>
-        <Route exact path="/" component={LoginPage}></Route>
-        <Route path="/signup" component={SignupPage}></Route>
-        <Route path="/forgotten-password" component={ForgottenPassword}></Route>
-        <Route path="/dashboard" component={Dashboard}></Route>
+
+        <PublicRoute
+          exact
+          restricted={true}
+          path="/"
+          component={LoginPage}
+          isLoggedIn={false}>
+        </PublicRoute>
+
+        <PublicRoute
+          exact
+          restricted={true}
+          path="/signup"
+          component={SignupPage}
+          isLoggedIn={false}>
+        </PublicRoute>
+
+        <PublicRoute
+          exact
+          restricted={true}
+          path="/forgotten-password"
+          component={ForgottenPassword}
+          isLoggedIn={false}>
+        </PublicRoute>
+
+        <PrivateRoute
+          component={Dashboard}
+          path="/dashboard"
+          isLoggedIn={false}
+          exact>
+        </PrivateRoute>
+
       </Router>
     </div>
   );
