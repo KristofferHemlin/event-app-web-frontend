@@ -1,10 +1,15 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
-const PublicRoute = ({component: Component, restricted, isLoggedIn, ...rest}) => {
+import { useStateValue } from '../../components/StateProvider/StateProvider';
+
+const PublicRoute = ({component: Component, restricted, ...rest}) => {
+
+  const [{ user }, dispatch] = useStateValue();
+
   return (
     <Route {...rest} render={props => (
-      isLoggedIn && restricted ?
+      user.isLoggedIn && restricted ?
           <Redirect to="/dashboard" />
       : <Component {...props} />
     )} />

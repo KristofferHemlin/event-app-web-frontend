@@ -7,8 +7,11 @@ import { toast } from 'react-toastify';
 import axios from 'axios';
 import { withRouter, Link } from 'react-router-dom'
 
+import { useStateValue } from '../../components/StateProvider/StateProvider';
+
 const TheLoginForm = withRouter(({ history }) => {
 
+  const [{ user }, dispatch] = useStateValue();
   let [isLoginDisabled, setIsLoginDisabled] = useState(true);
   let [isLoading, setIsLoading] = useState(false);
 
@@ -62,6 +65,12 @@ const TheLoginForm = withRouter(({ history }) => {
 
       // Sets our access JWT token as a header.
       axios.defaults.headers.common['Authorization'] = res.data.token;
+      dispatch({
+        type: 'ChangeLoginStatus',
+        newStatus: { isLoggedIn: true}
+      })
+
+      console.log(user);
 
       history.push('/dashboard');
     })
@@ -115,6 +124,7 @@ const TheLoginForm = withRouter(({ history }) => {
         >
           {buttonContent}
         </BaseButton>
+        <h3>{ user.isLoggedIn.toString() }</h3>
       </div>
     </div>
   );
