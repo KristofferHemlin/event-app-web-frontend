@@ -11,7 +11,7 @@ import { useStateValue } from '../../components/StateProvider/StateProvider';
 
 const TheLoginForm = withRouter(({ history }) => {
 
-  const [{ user }, dispatch] = useStateValue();
+  const [{ userInfo }, dispatch] = useStateValue();
   let [isLoginDisabled, setIsLoginDisabled] = useState(true);
   let [isLoading, setIsLoading] = useState(false);
 
@@ -34,6 +34,8 @@ const TheLoginForm = withRouter(({ history }) => {
     }
   ]);
 
+
+  // Update the form field values.
   let handleInputChange = (event, i) => {
     let values = [...fields];
     values[i].value = event.target.value;
@@ -45,6 +47,8 @@ const TheLoginForm = withRouter(({ history }) => {
     }
   };
 
+
+  // Handle the login attempt.
   let handleButtonClick = () => {
     setIsLoading(true);
     setIsLoginDisabled(true);
@@ -61,16 +65,20 @@ const TheLoginForm = withRouter(({ history }) => {
     .then(res => {
       setIsLoading(false);
       setIsLoginDisabled(false);
+
+      // TODO: Store token into localStorage for ease of access. (Check with someon on XXS-attack risks.)
+      // TODO:
+
       console.log(res);
+      localStorage.setItem('userToken', res.data.token );
+
 
       // Sets our access JWT token as a header.
       axios.defaults.headers.common['Authorization'] = res.data.token;
       dispatch({
         type: 'ChangeLoginStatus',
-        newStatus: { isLoggedIn: true}
+        newStatus: true
       })
-
-      console.log(user);
 
       history.push('/dashboard');
     })
@@ -124,7 +132,6 @@ const TheLoginForm = withRouter(({ history }) => {
         >
           {buttonContent}
         </BaseButton>
-        <h3>{ user.isLoggedIn.toString() }</h3>
       </div>
     </div>
   );
