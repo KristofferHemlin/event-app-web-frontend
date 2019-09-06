@@ -11,6 +11,7 @@ import ForgottenPassword from './views/ForgottenPassword/ForgottenPassword';
 import Dashboard from './views/Dashboard/Dashboard';
 
 // Route Components
+import RouteChangeListener from './components/RouteChangeListener/RouteChangeListener';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import PublicRoute from './components/PublicRoute/PublicRoute';
 
@@ -27,66 +28,66 @@ library.add(faUserEdit, faSpinner);
 function App() {
 
   const initialState = {
-    user: {
-      isLoggedIn: false,
-      data: null,
-    }
+    isLoggedIn: false,
+    userInfo: {},
   };
 
   const reducer = (state, action) => {
     switch (action.type) {
+      case 'ClearState':
+        return {
+          ...initialState
+        };
       case 'ChangeLoginStatus':
         return {
           ...state,
-          user: action.newStatus,
+          isLoggedIn: action.newStatus,
         };
-
+      case 'UpdateUserInformation':
+        return {
+          ...state,
+          userInfo: action.newUserInfo,
+        };
       default:
         return state;
     }
   };
-
-  let checkIfUserIsAuthenticated = () => {
-    console.log(axios.defaults.headers);
-  }
-
-  useEffect(() => {
-    checkIfUserIsAuthenticated();
-  }, []);
 
   return (
     <StateProvider initialState={initialState} reducer={reducer}>
       <div className="App">
         <ToastContainer/>
         <Router>
+          <RouteChangeListener>
 
-          <PublicRoute
-            exact
-            restricted={true}
-            path="/"
-            component={LoginPage}>
-          </PublicRoute>
+            <PublicRoute
+              exact
+              restricted={true}
+              path="/"
+              component={LoginPage}>
+            </PublicRoute>
 
-          <PublicRoute
-            exact
-            restricted={true}
-            path="/signup"
-            component={SignupPage}>
-          </PublicRoute>
+            <PublicRoute
+              exact
+              restricted={true}
+              path="/signup"
+              component={SignupPage}>
+            </PublicRoute>
 
-          <PublicRoute
-            exact
-            restricted={true}
-            path="/forgotten-password"
-            component={ForgottenPassword}>
-          </PublicRoute>
+            <PublicRoute
+              exact
+              restricted={true}
+              path="/forgotten-password"
+              component={ForgottenPassword}>
+            </PublicRoute>
 
-          <PrivateRoute
-            component={Dashboard}
-            path="/dashboard"
-            exact>
-          </PrivateRoute>
+            <PrivateRoute
+              component={Dashboard}
+              path="/dashboard"
+              exact>
+            </PrivateRoute>
 
+          </RouteChangeListener>
         </Router>
       </div>
     </StateProvider>
