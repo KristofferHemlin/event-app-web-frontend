@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import TextInput from '../../components/TextInput/TextInput';
+import BaseInput from '../../components/BaseInput/BaseInput';
 import BaseButton from '../../components/BaseButton/BaseButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { toast } from 'react-toastify';
@@ -113,7 +113,7 @@ const TheLoginForm = withRouter(({ history }) => {
   return (
     <div className="the-login-form">
       {fields.map((input, idx) => (
-        <TextInput
+        <BaseInput
           key={input.key}
           type={input.type}
           variant={input.variant}

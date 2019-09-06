@@ -1,5 +1,5 @@
 import React from 'react';
-import './TextInput.scss';
+import './BaseInput.scss';
 
 let getInputClasses = (props) => {
   let classString = '';
