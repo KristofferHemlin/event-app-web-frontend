@@ -5,11 +5,11 @@ import { useStateValue } from '../../components/StateProvider/StateProvider';
 
 const PublicRoute = ({component: Component, restricted, ...rest}) => {
 
-  const [{ user }, dispatch] = useStateValue();
+  const [{ isLoggedIn }, dispatch] = useStateValue();
 
   return (
     <Route {...rest} render={props => (
-      user.isLoggedIn && restricted ?
+      isLoggedIn && restricted ?
           <Redirect to="/dashboard" />
       : <Component {...props} />
     )} />
