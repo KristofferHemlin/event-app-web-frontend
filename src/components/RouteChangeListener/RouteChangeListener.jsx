@@ -47,7 +47,7 @@ const RouteChangeListener = withRouter(({ history, children }) => {
 
   useEffect(() => {
     onRouteChange();
-  }, []);
+  }, [history.location]);
 
   return (
     <div className="route-change-listener">
