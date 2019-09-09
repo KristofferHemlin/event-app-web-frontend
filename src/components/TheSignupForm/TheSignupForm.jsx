@@ -6,7 +6,7 @@ import BaseButton from '../../components/BaseButton/BaseButton';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { withRouter, Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
 const TheSignupForm = withRouter(({ history }) => {
 
