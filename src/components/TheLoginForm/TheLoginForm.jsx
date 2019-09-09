@@ -80,7 +80,7 @@ const TheLoginForm = withRouter(({ history }) => {
         newStatus: true
       })
 
-      history.push('/dashboard');
+      history.push('/');
     })
     .catch(err => {
 

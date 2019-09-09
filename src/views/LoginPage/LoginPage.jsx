@@ -12,15 +12,10 @@ const LoginPage = withRouter(({ history }) => {
 
   return (
     <div className="login-page">
-      <BackgroundImagePane
-        backgroundImage={background}
-      >
-      <div className="inner-page">
-        <div className="login-content">
-          <h1>EVENT APP</h1>
-            <TheLoginForm/>
-            <Link to="/Dashboard">Forgotten your password?</Link>
-        </div>
+      <div className="login-content">
+        <h1>EVENT APP</h1>
+        <TheLoginForm/>
+        <Link to="/Dashboard">Forgotten your password?</Link>
         <div className="login-footer">
           <BaseButton
             size="md"
@@ -33,7 +28,6 @@ const LoginPage = withRouter(({ history }) => {
           </BaseButton>
         </div>
       </div>
-      </BackgroundImagePane>
     </div>
   )
 })

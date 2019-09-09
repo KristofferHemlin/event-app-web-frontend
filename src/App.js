@@ -3,11 +3,11 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faUserEdit, faSpinner } from '@fortawesome/free-solid-svg-icons'
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
 
+// Interfaces
+import LoginInterface from './interfaces/LoginInterface/LoginInterface';
+import DashboardInterface from './interfaces/DashboardInterface/DashboardInterface';
+
 // Pages
-import LoginPage from './views/LoginPage/LoginPage';
-import SignupPage from './views/SignupPage/SignupPage';
-import ForgottenPassword from './views/ForgottenPassword/ForgottenPassword';
-import Dashboard from './views/Dashboard/Dashboard';
 import PageNotFound from './views/PageNotFound/PageNotFound';
 
 // Route Components
@@ -62,34 +62,17 @@ function App() {
             <Switch>
               <PublicRoute
                 exact
-                restricted={true}
-                path="/"
-                component={LoginPage}>
+                restricted={ true }
+                path="/(login|signup|forgot-password|reset-password)"
+                component={ LoginInterface }>
               </PublicRoute>
-
-              <PublicRoute
-                exact
-                restricted={true}
-                path="/signup"
-                component={SignupPage}>
-              </PublicRoute>
-
-              <PublicRoute
-                exact
-                restricted={true}
-                path="/forgotten-password"
-                component={ForgottenPassword}>
-              </PublicRoute>
-
               <PrivateRoute
-                component={Dashboard}
-                path="/dashboard"
-                exact>
-              </PrivateRoute>
-
-              <PublicRoute
-                component={PageNotFound}>
-              </PublicRoute>
+                component={ DashboardInterface }
+                path="/"
+              ></PrivateRoute>
+            <PublicRoute
+              component={ PageNotFound }>
+            </PublicRoute>
             </Switch>
           </RouteChangeListener>
         </Router>
@@ -97,5 +80,38 @@ function App() {
     </StateProvider>
   );
 }
+
+// <PublicRoute
+//   exact
+//   restricted={true}
+//   path="/"
+//   component={LoginPage}>
+// </PublicRoute>
+//
+// <PublicRoute
+//   exact
+//   restricted={true}
+//   path="/signup"
+//   component={SignupPage}>
+// </PublicRoute>
+//
+// <PublicRoute
+//   exact
+//   restricted={true}
+//   path="/forgotten-password"
+//   component={ForgottenPassword}>
+// </PublicRoute>
+//
+// <PrivateRoute
+//   exact
+//   component={Dashboard}
+//   path="/dashboard">
+// </PrivateRoute>
+//
+// <PublicRoute
+//   component={PageNotFound}>
+// </PublicRoute>
+
+
 
 export default App;

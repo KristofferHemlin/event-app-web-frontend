@@ -1,19 +1,12 @@
 .signup-page {
   width: 100vw;
   min-height: 100vh;
-
-  overflow-x: hidden;
-  background-color: #4ea679;
-
-  .inner-page{
-    box-sizing: border-box;
-    padding: 50px 0px;
-    width: inherit;
-    height: inherit;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 50px 0px;
 
   .signup-content-pane{
     border-radius: 3px;

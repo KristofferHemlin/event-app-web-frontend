@@ -16,7 +16,7 @@ const TheDashboardHeader = withRouter(({ history }) => {
     dispatch({
       type: 'ClearState',
     });
-    history.push('/');
+    history.push('/login');
     console.log('logout did its thing');
   }
 
