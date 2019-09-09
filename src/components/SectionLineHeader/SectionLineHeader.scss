@@ -1,0 +1,25 @@
+.section-line-header{
+  height: 30px;
+  display: flex;
+  align-items: center;
+  margin: 10px 0px;
+
+  .title {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 600;
+    padding-right: 10px;
+    vertical-align: top;
+    color: #b5b5b5;
+  }
+
+  .line {
+    flex-grow: 1;
+    position: relative;
+    top:1px;
+    display: inline-block;
+    height: 1px;
+    width: 200px;
+    background-color: #b5b5b5;
+  }
+}
