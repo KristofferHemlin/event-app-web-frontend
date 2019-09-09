@@ -1,0 +1,49 @@
+.text-input-container {
+  position: relative;
+  margin: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+
+  input {
+    z-index: 10;
+    background: rgba(#ffffff, 0);
+    box-sizing: border-box;
+    font-size: 16px;
+    font-weight: 100;
+    padding: 20px 0px;
+    max-height: 56px;
+    border:none;
+    border-bottom: 2px solid rgba(97, 97, 97, .1);
+    transition: all .3s linear;
+  }
+
+  input:focus {
+    border-bottom: solid 2px #427ac3;
+    outline: 0;
+  }
+
+  input:not(:placeholder-shown) {
+    padding-top: 28px;
+    padding-bottom: 12px;
+  }
+
+  input:not(:placeholder-shown) + label {
+    transform: translateY(-20px);
+    transition: 1s all;
+    opacity: 1.0;
+    font-size: 12px;
+    color: #000;
+  }
+
+  label {
+    transition: 1s all;
+    z-index: 5;
+    font-weight: 600;
+    position: absolute;
+    top: calc(50% - 8px);
+    color: #a3a3a3;
+    opacity: 0.8;
+  }
+
+}
