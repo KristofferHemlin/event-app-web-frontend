@@ -14,7 +14,7 @@ let getInputClasses = (props) => {
 };
 
 const TextInput = (props) => (
-  <div className={`text-input ${getInputClasses(props)}`}>
+  <div className={`base-input ${getInputClasses(props)}`}>
     <label htmlFor="">{props.label}</label>
     <input
       name={props.name}
