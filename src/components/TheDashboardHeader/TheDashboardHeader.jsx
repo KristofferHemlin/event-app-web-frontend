@@ -32,7 +32,7 @@ const TheDashboardHeader = withRouter(({ history }) => {
         <BaseButton
           size="sm"
           variant="danger"
-          buttonType="filled"
+          buttonType="frame"
           onClick={() => logOut()}
         >Logout</BaseButton>
       </div>
