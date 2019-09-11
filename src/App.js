@@ -1,6 +1,12 @@
 import React from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faUserEdit, faSpinner, faInfo } from '@fortawesome/free-solid-svg-icons'
+import {
+  faUserEdit,
+  faSpinner,
+  faInfo,
+  faUsers,
+  faInfoCircle,
+} from '@fortawesome/free-solid-svg-icons'
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
 
 // Interfaces
@@ -23,7 +29,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-library.add(faUserEdit, faSpinner, faInfo);
+library.add(faUserEdit, faSpinner, faInfo, faUsers, faInfoCircle);
 
 function App() {
 

@@ -85,12 +85,12 @@ const CompanyOverview = () => {
 
       <ContextFooter>
         <button className={currentPane === 'Company Overview' ? 'active' : '' } onClick={() => setCurrentPane('Company Overview')}>
-          <FontAwesomeIcon icon="user-edit" size="2x" />
+          <FontAwesomeIcon icon="info-circle" size="2x" />
           <span>Overview</span>
         </button>
 
         <button className={currentPane === 'Company Employees' ? 'active' : '' } onClick={() => setCurrentPane('Company Employees')}>
-          <FontAwesomeIcon icon="user-edit" size="2x" />
+          <FontAwesomeIcon icon="users" size="2x" />
           <span>Employees</span>
         </button>
       </ContextFooter>
