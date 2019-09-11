@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import BaseInput from '../../components/BaseInput/BaseInput';
+import TextInput from '../../components/TextInput/TextInput';
 import BaseButton from '../../components/BaseButton/BaseButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { toast } from 'react-toastify';
@@ -21,7 +22,7 @@ const TheLoginForm = withRouter(({ history }) => {
       key: 'accountName',
       type: 'text',
       variant: 'login-special',
-      placeholder: 'Account Name',
+      label: 'Account Name',
       value: '',
 
     },
@@ -29,7 +30,7 @@ const TheLoginForm = withRouter(({ history }) => {
       key: 'accountPassword',
       type: 'password',
       variant: 'login-special',
-      placeholder: 'Password',
+      label: 'Password',
       value: '',
     }
   ]);
@@ -113,14 +114,14 @@ const TheLoginForm = withRouter(({ history }) => {
   return (
     <div className="the-login-form">
       {fields.map((input, idx) => (
-        <BaseInput
+        <TextInput
           key={input.key}
+          label={input.label}
           type={input.type}
-          variant={input.variant}
+          variant=""
           disabled={isLoading}
-          placeholder={input.placeholder}
           onChange={e => { handleInputChange(e, idx)}}
-        />
+        ></TextInput>
       ))}
       <div className="actions-bar">
         <BaseButton

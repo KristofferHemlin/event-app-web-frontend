@@ -1,11 +1,22 @@
 import React from 'react';
 import './TextInput.scss'
 
-const TextInput = () => {
+const TextInput = ({
+  label,
+  type,
+  name,
+  onChange
+}) => {
   return (
     <div className="text-input-container">
-    <input type="text" name="asdf" placeholder=" "/>
-    <label htmlFor="">First name</label>
+    <div className="input-background-pane"></div>
+    <input
+      type={type}
+      name="asdf"
+      placeholder=" "
+      onChange={onChange}
+    />
+    <label htmlFor="">{ label }</label>
     </div>
   );
 };
