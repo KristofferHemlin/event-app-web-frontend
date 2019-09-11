@@ -1,5 +1,8 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+ [ ] Refactor the routert into a single component that handles all route logic.
+
+
 ## Available Scripts
 
 In the project directory, you can run:

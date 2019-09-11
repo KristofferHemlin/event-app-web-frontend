@@ -1,0 +1,35 @@
+.context-footer {
+  left: 0;
+  bottom: 0;
+  position: absolute;
+  background-color: #eeeaea;
+  width: 100vw;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #e7e7e7;
+
+  button {
+    border: none;
+    width: 80px;
+    height: 80px;
+    background-color: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #eeeaea;
+
+
+    &.active {
+      background-color: #5486f5;
+      color: #fff;
+    }
+
+    span {
+      display: inline-block;
+      margin: 5px 0px;
+    }
+
+  }
+}

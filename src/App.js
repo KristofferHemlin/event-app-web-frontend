@@ -1,6 +1,6 @@
 import React from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faUserEdit, faSpinner } from '@fortawesome/free-solid-svg-icons'
+import { faUserEdit, faSpinner, faInfo } from '@fortawesome/free-solid-svg-icons'
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
 
 // Interfaces
@@ -23,7 +23,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-library.add(faUserEdit, faSpinner);
+library.add(faUserEdit, faSpinner, faInfo);
 
 function App() {
 
@@ -63,7 +63,7 @@ function App() {
               <PublicRoute
                 exact
                 restricted={ true }
-                path="/(login|signup|forgot-password|reset-password)"
+                path="/(login|signup|forgotten-password|reset-password|logout)"
                 component={ LoginInterface }>
               </PublicRoute>
               <PrivateRoute
@@ -80,38 +80,5 @@ function App() {
     </StateProvider>
   );
 }
-
-// <PublicRoute
-//   exact
-//   restricted={true}
-//   path="/"
-//   component={LoginPage}>
-// </PublicRoute>
-//
-// <PublicRoute
-//   exact
-//   restricted={true}
-//   path="/signup"
-//   component={SignupPage}>
-// </PublicRoute>
-//
-// <PublicRoute
-//   exact
-//   restricted={true}
-//   path="/forgotten-password"
-//   component={ForgottenPassword}>
-// </PublicRoute>
-//
-// <PrivateRoute
-//   exact
-//   component={Dashboard}
-//   path="/dashboard">
-// </PrivateRoute>
-//
-// <PublicRoute
-//   component={PageNotFound}>
-// </PublicRoute>
-
-
 
 export default App;

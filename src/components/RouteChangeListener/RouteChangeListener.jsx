@@ -4,9 +4,20 @@ import { withRouter } from 'react-router-dom'
 import FullScreenSpinner from '../FullScreenSpinner/FullScreenSpinner';
 import axios from 'axios';
 
-const RouteChangeListener = withRouter(({ history, children }) => {
+const RouteChangeListener = withRouter(({ history, location, children }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [{ isLoggedIn, userInfo }, dispatch] = useStateValue();
+
+  const logOut = () => {
+    console.log('I was fired off');
+    localStorage.clear();
+    delete axios.defaults.headers.common["Authorization"];
+    dispatch({
+      type: 'ClearState',
+    });
+    history.push('/login');
+    console.log('logout did its thing');
+  }
 
 
   const onRouteChange = () => {
@@ -46,8 +57,15 @@ const RouteChangeListener = withRouter(({ history, children }) => {
   };
 
   useEffect(() => {
-    onRouteChange();
-  }, [history.location]);
+    console.log(location)
+    switch(location.pathname){
+      case '/logout':
+        logOut();
+        break;
+      default:
+        onRouteChange();
+    }
+  }, [location.pathname]);
 
   return (
     <div className="route-change-listener">

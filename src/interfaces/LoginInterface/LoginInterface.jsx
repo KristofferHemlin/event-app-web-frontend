@@ -28,6 +28,10 @@ const LoginInterface = () => {
           component={SignupPage}>
         </PublicRoute>
 
+        <PublicRoute
+          path="/forgotten-password"
+          component={ForgottenPassword}>
+        </PublicRoute>
 
       </BackgroundImagePane>
     </div>
