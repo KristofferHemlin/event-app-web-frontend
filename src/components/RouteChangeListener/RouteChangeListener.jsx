@@ -40,7 +40,6 @@ const RouteChangeListener = withRouter(({ history, location, children }) => {
       })
       axios.get(process.env.REACT_APP_API_URL + '/users/me')
       .then(res => {
-        console.log(res);
         setIsLoading(false);
         dispatch({
           type: 'UpdateUserInformation',
