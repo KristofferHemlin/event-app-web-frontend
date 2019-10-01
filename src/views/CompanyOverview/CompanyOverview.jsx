@@ -1,34 +1,67 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './CompanyOverview.scss';
 import axios from 'axios';
 
 import SectionPaneHeader from '../../components/SectionPaneHeader/SectionPaneHeader';
 import SectionLineHeader from '../../components/SectionLineHeader/SectionLineHeader';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import MobileActionMenu from '../../components/MobileActionMenu/MobileActionMenu';
+import ActionsContextMenu from '../../components/ActionsContextMenu/ActionsContextMenu';
 import BaseButton from '../../components/BaseButton/BaseButton';
 import ContextFooter from '../../components/ContextFooter/ContextFooter';
 
 const CompanyOverview = () => {
 
-  let [mobileMenuVisibillityState, setMobileMenuVisibillityState] = useState(false);
+  let [isLoadingEvents, setIsLoadingEvents] = useState(true);
+  let [overviewContextMenu, setOverviewContextMenu] = useState(false);
   let [currentPane, setCurrentPane] = useState('Company Overview');
-  const toggleMobileMenu = () => {
-    setMobileMenuVisibillityState(!mobileMenuVisibillityState);
+  let [currentlySelectedFile, setCurrentlySelectedFile] = useState();
+
+
+  const fetchCompanyDetails = () => {
+    setIsLoadingEvents(true);
+    axios.get(process.env.REACT_APP_API_URL + '/events')
+    .then(res => {
+      console.log(res);
+    })
+    .catch(err => console.log(err))
+    .then(() => setIsLoadingEvents(false))
+  }
+
+  const toggleOverviweContextMenu = () => {
+    setOverviewContextMenu(!overviewContextMenu);
   }
 
   const setActivePane = (paneName) => {
     setCurrentPane = 'paneName';
   };
 
+  const submitFile = () => {
+    let fd = new FormData();
+    fd.append('image', currentlySelectedFile)
+    console.log(fd.entries());
+
+    axios.post(process.env.REACT_APP_API_URL + '/users/invite-multiple', fd)
+    .then(res => {
+      console.log(res);
+    })
+    .catch(err => {
+      console.log(err);
+    })
+  };
+
+
+  useEffect(() => {
+    fetchCompanyDetails();
+  },[]);
+
 
   return (
     <div className="company-overview-page">
 
-      { mobileMenuVisibillityState === true ?
-        <MobileActionMenu
+      { overviewContextMenu === true ?
+        <ActionsContextMenu
           menuTitle="Company Actions"
-          onClose={ () => toggleMobileMenu() }
+          onClose={ () => toggleOverviweContextMenu() }
         /> : '' }
 
       <div className={`pane-container ${currentPane === 'Company Overview' ? '' : 'translated'}`}>
@@ -40,7 +73,7 @@ const CompanyOverview = () => {
               size="md"
               variant="primary"
               buttonType="frame"
-              onClick={() => toggleMobileMenu()}
+              onClick={() => toggleOverviweContextMenu()}
             >
               Action
             </BaseButton>
@@ -74,12 +107,16 @@ const CompanyOverview = () => {
               size="md"
               variant="primary"
               buttonType="frame"
-              onClick={() => toggleMobileMenu()}
+              onClick={() => toggleOverviweContextMenu()}
             >
               Action
             </BaseButton>
 
           </SectionPaneHeader>
+
+          <input type="file" onChange={(e) => setCurrentlySelectedFile(e.target.files[0])}/>
+          <button onClick={() => submitFile()}>Submit</button>
+
         </div>
       </div>
 

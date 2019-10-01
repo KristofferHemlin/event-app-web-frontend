@@ -1,6 +1,4 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch } from 'react-router-dom';
-import PrivateRoute from '../../components/PrivateRoute/PrivateRoute';
 import PublicRoute from '../../components/PublicRoute/PublicRoute';
 import BackgroundImagePane from '../../components/BackgroundImagePane/BackgroundImagePane';
 import background from '../../assets/images/login-bg.png';

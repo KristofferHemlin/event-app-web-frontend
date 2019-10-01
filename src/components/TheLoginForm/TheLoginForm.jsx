@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-import BaseInput from '../../components/BaseInput/BaseInput';
 import TextInput from '../../components/TextInput/TextInput';
 import BaseButton from '../../components/BaseButton/BaseButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -12,7 +11,7 @@ import { useStateValue } from '../../components/StateProvider/StateProvider';
 
 const TheLoginForm = withRouter(({ history }) => {
 
-  const [{ userInfo }, dispatch] = useStateValue();
+  const [{isLoggedIn}, dispatch] = useStateValue();
   let [isLoginDisabled, setIsLoginDisabled] = useState(true);
   let [isLoading, setIsLoading] = useState(false);
 
@@ -86,6 +85,7 @@ const TheLoginForm = withRouter(({ history }) => {
     .catch(err => {
 
       if(!err.response){
+        console.log(err)
         toast.error('Could not log you in at this moment, please try again later.', {
             position: toast.POSITION.TOP_CENTER
         });

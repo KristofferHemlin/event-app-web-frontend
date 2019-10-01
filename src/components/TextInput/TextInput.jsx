@@ -1,14 +1,16 @@
 import React from 'react';
 import './TextInput.scss'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const TextInput = ({
   label,
   type,
   name,
-  onChange
+  variant,
+  onChange,
 }) => {
   return (
-    <div className="text-input-container">
+    <div className={`text-input-container ${variant}`} >
     <div className="input-background-pane"></div>
     <input
       type={type}
@@ -17,6 +19,9 @@ const TextInput = ({
       onChange={onChange}
     />
     <label htmlFor="">{ label }</label>
+    <div className="validation-message-container">
+      <p>ajskdnsajhdb aksöbndkjsajh asjbdhjsada. ajshbdbasj jahsdbahjldshj jabhsdbsagdh jhasdb.</p>
+    </div>
     </div>
   );
 };

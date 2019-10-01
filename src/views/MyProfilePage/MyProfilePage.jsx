@@ -10,7 +10,7 @@ const MyProfilePage = withRouter(({ history }) => {
 
 
 
-  const [{ userInfo }, dispatch] = useStateValue();
+  const [{ userInfo }] = useStateValue();
 
   return (
     <div className="my-profile-page">

@@ -1,9 +1,7 @@
 import React from 'react';
 import TheDashboardHeader from '../../components/TheDashboardHeader/TheDashboardHeader';
-import TextInput from '../../components/TextInput/TextInput';
 import PrivateRoute from '../../components/PrivateRoute/PrivateRoute';
-import PublicRoute from '../../components/PublicRoute/PublicRoute';
-import { BrowserRouter as Router, Switch } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 
 
 // Pages

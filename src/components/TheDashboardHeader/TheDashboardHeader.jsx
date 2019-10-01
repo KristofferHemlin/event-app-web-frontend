@@ -1,7 +1,6 @@
 import React, { useState} from 'react';
 import './TheDashboardHeader.scss'
 import { withRouter } from 'react-router-dom'
-import axios from 'axios';
 import { useStateValue } from '../StateProvider/StateProvider';
 
 import BaseButton from '../../components/BaseButton/BaseButton';
@@ -10,9 +9,8 @@ import { Link } from 'react-router-dom';
 
 const TheDashboardHeader = withRouter(({ history }) => {
 
-  const [{ userInfo }, dispatch] = useStateValue();
+  const [{ userInfo }] = useStateValue();
   let [mobileMenuVisibillityState, setMobileMenuVisibillityState] = useState(false);
-  let [isLoginDisabled, setIsLoginDisabled] = useState(true);
 
   const goToRoute = (path) => {
     setMobileMenuVisibillityState(false);

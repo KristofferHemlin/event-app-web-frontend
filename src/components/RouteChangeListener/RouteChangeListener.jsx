@@ -6,17 +6,15 @@ import axios from 'axios';
 
 const RouteChangeListener = withRouter(({ history, location, children }) => {
   const [isLoading, setIsLoading] = useState(true);
-  const [{ isLoggedIn, userInfo }, dispatch] = useStateValue();
+  const [{ isLoggedIn },dispatch] = useStateValue();
 
   const logOut = () => {
-    console.log('I was fired off');
     localStorage.clear();
     delete axios.defaults.headers.common["Authorization"];
     dispatch({
       type: 'ClearState',
     });
     history.push('/login');
-    console.log('logout did its thing');
   }
 
 

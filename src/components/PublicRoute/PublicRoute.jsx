@@ -5,7 +5,7 @@ import { useStateValue } from '../../components/StateProvider/StateProvider';
 
 const PublicRoute = ({component: Component, restricted, ...rest}) => {
 
-  const [{ isLoggedIn }, dispatch] = useStateValue();
+  const [{ isLoggedIn }] = useStateValue();
 
   return (
     <Route {...rest} render={props => (

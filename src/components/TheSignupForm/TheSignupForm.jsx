@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './TheSignupForm.scss'
 
-import BaseInput from '../../components/BaseInput/BaseInput';
+import TextInput from '../../components/TextInput/TextInput';
 import BaseButton from '../../components/BaseButton/BaseButton';
 import axios from 'axios';
 import { toast } from 'react-toastify';
@@ -149,15 +149,15 @@ const TheSignupForm = withRouter(({ history }) => {
   return (
     <div className="the-signup-form">
       { fields.map( (input, idx) => {
-        return <BaseInput
+        return <TextInput
           key={input.key}
           name={input.name}
           type={input.type}
           label={input.label}
           placeholder={input.placeholder}
+
           disabled={isLoading}
           onChange={e => handleInputChange(e, idx)}
-          variant="subtle"
         />
       })}
       <BaseButton

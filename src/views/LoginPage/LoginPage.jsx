@@ -1,11 +1,9 @@
 import React from 'react';
 import './LoginPage.scss';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import BaseButton from '../../components/BaseButton/BaseButton';
-import BackgroundImagePane from '../../components/BackgroundImagePane/BackgroundImagePane';
 import TheLoginForm from '../../components/TheLoginForm/TheLoginForm';
-import background from '../../assets/images/login-bg.png';
 import { withRouter, Link } from 'react-router-dom'
 
 const LoginPage = withRouter(({ history }) => {

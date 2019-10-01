@@ -1,7 +1,7 @@
 import React from 'react';
-import './MobileActionMenu.scss';
+import './ActionsContextMenu.scss';
 
-const MobileActionMenu = ({ menuTitle, onClose}) => {
+const ActionsContextMenu = ({ menuTitle, onClose}) => {
 
   const links = [
     {
@@ -16,7 +16,7 @@ const MobileActionMenu = ({ menuTitle, onClose}) => {
   ]
 
   return (
-    <div className="mobile-navigation-menu">
+    <div className="actions-context-menu">
       <div className="inner-menu">
         <h1>{menuTitle}</h1>
         <ul>
@@ -34,4 +34,4 @@ const MobileActionMenu = ({ menuTitle, onClose}) => {
   );
 };
 
-export default MobileActionMenu;
+export default ActionsContextMenu;
