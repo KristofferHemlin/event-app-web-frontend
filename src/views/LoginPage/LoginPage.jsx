@@ -14,17 +14,6 @@ const LoginPage = withRouter(({ history }) => {
         <h1>EVENT APP</h1>
         <TheLoginForm/>
         <Link to="/forgotten-password">Forgotten your password?</Link>
-        <div className="login-footer">
-          <BaseButton
-            size="md"
-            variant="subtle"
-            buttonType="frame"
-            onClick={() => history.push('/signup')}
-          >
-            <FontAwesomeIcon icon="user-edit" />
-            <span>Dont have an account yet? Click here to sign up!</span>
-          </BaseButton>
-        </div>
       </div>
     </div>
   )
