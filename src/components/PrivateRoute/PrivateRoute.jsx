@@ -7,6 +7,7 @@ const PrivateRoute = ({component: Component, ...rest}) => {
 
   const [{ isLoggedIn }] = useStateValue();
 
+  console.log(isLoggedIn);
   return (
     <Route {...rest} render={props => (
       isLoggedIn ?

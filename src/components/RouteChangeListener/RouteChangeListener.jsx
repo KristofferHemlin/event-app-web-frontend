@@ -37,12 +37,21 @@ const RouteChangeListener = withRouter(({ history, location, children }) => {
         newStatus: true
       })
       axios.get(process.env.REACT_APP_API_URL + '/users/me')
-      .then(res => {
-        setIsLoading(false);
+      .then(user => {
         dispatch({
           type: 'UpdateUserInformation',
-          newUserInfo: { ...res.data },
+          newUserInfo: { ...user.data },
         })
+        setIsLoading(false);
+        console.log(user)
+        if (!user.signupComplete){
+          console.log('would send the user to the FTS-page.');
+          history.push('/first-time-setup');
+        } else {
+          console.log('would not send the user to the FTS-page.');
+          history.push('/')
+        }
+
       })
       .catch(err => {
         console.log(err);

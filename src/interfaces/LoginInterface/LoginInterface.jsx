@@ -1,5 +1,6 @@
 import React from 'react';
 import PublicRoute from '../../components/PublicRoute/PublicRoute';
+import PrivateRoute from '../../components/PrivateRoute/PrivateRoute';
 import BackgroundImagePane from '../../components/BackgroundImagePane/BackgroundImagePane';
 import background from '../../assets/images/login-bg.png';
 import './LoginInterface.scss'
