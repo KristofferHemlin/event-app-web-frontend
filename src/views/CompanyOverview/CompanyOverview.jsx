@@ -8,6 +8,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ActionsContextMenu from '../../components/ActionsContextMenu/ActionsContextMenu';
 import BaseButton from '../../components/BaseButton/BaseButton';
 import ContextFooter from '../../components/ContextFooter/ContextFooter';
+import EventPane from '../../components/EventPane/EventPane';
+import { useStateValue } from '../../components/StateProvider/StateProvider';
 
 const CompanyOverview = () => {
 
@@ -16,12 +18,18 @@ const CompanyOverview = () => {
   let [currentPane, setCurrentPane] = useState('Company Overview');
   let [currentlySelectedFile, setCurrentlySelectedFile] = useState();
 
+  let [pastEvents, setPastEvents] = useState ([]); 
+  let [currentEvents, setCurrentEvents] = useState([]); 
+
+  const [{ userInfo }] = useStateValue();
 
   const fetchCompanyDetails = () => {
+    console.log(userInfo);
     setIsLoadingEvents(true);
-    axios.get(process.env.REACT_APP_API_URL + '/events')
-    .then(res => {
-      console.log(res);
+    axios.get(process.env.REACT_APP_API_URL + `/companies/${userInfo.company.id}/events`)
+    .then(events => {
+      console.log(events.data);
+      setCurrentEvents(events.data)
     })
     .catch(err => console.log(err))
     .then(() => setIsLoadingEvents(false))
@@ -48,7 +56,6 @@ const CompanyOverview = () => {
       console.log(err);
     })
   };
-
 
   useEffect(() => {
     fetchCompanyDetails();
@@ -84,9 +91,21 @@ const CompanyOverview = () => {
             <SectionLineHeader
               title="Current Events"
             />
-            <div className="empty-list-placeholder">
-              <span>There are currently no planned events. :(</span>
-            </div>
+            {currentEvents.length === 0 ? (
+              <div className="empty-list-placeholder">
+                <span>There are currently no planned events. :(</span>
+              </div>
+            ) : (
+              currentEvents.map((event, idx) => {
+                return <EventPane 
+                  title={event.title} 
+                  key={idx}
+                  linkTo={`/event/${event.id}`}
+                />
+              })
+            )}
+
+            
           </div>
 
           <div>
@@ -113,9 +132,6 @@ const CompanyOverview = () => {
             </BaseButton>
 
           </SectionPaneHeader>
-
-          <input type="file" onChange={(e) => setCurrentlySelectedFile(e.target.files[0])}/>
-          <button onClick={() => submitFile()}>Submit</button>
 
         </div>
       </div>

@@ -6,7 +6,7 @@ import axios from 'axios';
 
 const RouteChangeListener = withRouter(({ history, location, children }) => {
   const [isLoading, setIsLoading] = useState(true);
-  const [{ isLoggedIn },dispatch] = useStateValue();
+  const [{ isLoggedIn }, dispatch] = useStateValue();
 
   const logOut = () => {
     localStorage.clear();
