@@ -43,13 +43,10 @@ const RouteChangeListener = withRouter(({ history, location, children }) => {
           newUserInfo: { ...user.data },
         })
         setIsLoading(false);
-        console.log(user)
-        if (!user.signupComplete){
-          console.log('would send the user to the FTS-page.');
+        if (!user.data.signupComplete){
           history.push('/first-time-setup');
         } else {
-          console.log('would not send the user to the FTS-page.');
-          history.push('/')
+          return;
         }
 
       })
@@ -63,7 +60,6 @@ const RouteChangeListener = withRouter(({ history, location, children }) => {
   };
 
   useEffect(() => {
-    console.log(location)
     switch(location.pathname){
       case '/logout':
         logOut();

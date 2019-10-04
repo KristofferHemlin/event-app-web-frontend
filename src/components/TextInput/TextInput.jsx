@@ -3,6 +3,7 @@ import './TextInput.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const TextInput = ({
+  value,
   label,
   type,
   name,
@@ -16,6 +17,7 @@ const TextInput = ({
       type={type}
       name="asdf"
       placeholder=" "
+      value={value}
       onChange={onChange}
     />
     <label htmlFor="">{ label }</label>

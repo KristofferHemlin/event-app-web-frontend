@@ -23,7 +23,6 @@ const TheLoginForm = withRouter(({ history }) => {
       variant: 'login-special',
       label: 'Account Name',
       value: '',
-
     },
     {
       key: 'accountPassword',

@@ -5,10 +5,7 @@ import { withRouter } from 'react-router-dom'
 
 import SectionPaneHeader from '../../components/SectionPaneHeader/SectionPaneHeader';
 import BaseButton from '../../components/BaseButton/BaseButton';
-import background from '../../assets/images/johncena.png';
 const MyProfilePage = withRouter(({ history }) => {
-
-
 
   const [{ userInfo }] = useStateValue();
 
@@ -24,8 +21,7 @@ const MyProfilePage = withRouter(({ history }) => {
 
       <div className="user-profile">
         <div className="profile-header">
-          <div className="user-photo" style={{backgroundImage: `url(${background})`}}>
-          </div>
+          <img className="user-photo" src={process.env.REACT_APP_API_URL + '/' + userInfo.profileImageUrl} alt=""/>
           <h1>{ userInfo.firstName || null } { userInfo.lastName || null}</h1>
           <h2>Claremont Architecture and Development</h2>
         </div>
