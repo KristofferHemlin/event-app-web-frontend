@@ -7,20 +7,22 @@ const TextInput = ({
   label,
   type,
   name,
+  disabled,
   variant,
   onChange,
 }) => {
   return (
     <div className={`text-input-container ${variant}`} >
-    <div className="input-background-pane"></div>
     <input
       type={type}
       name="asdf"
       placeholder=" "
+      disabled={disabled}
       value={value}
       onChange={onChange}
     />
     <label htmlFor="">{ label }</label>
+    <div className="input-background-pane"></div>
     <div className="validation-message-container">
       <p>ajskdnsajhdb aksöbndkjsajh asjbdhjsada. ajshbdbasj jahsdbahjldshj jabhsdbsagdh jhasdb.</p>
     </div>

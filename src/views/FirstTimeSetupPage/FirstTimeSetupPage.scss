@@ -51,6 +51,11 @@
             display: none;
         }
 
+        fieldset{
+            padding: 0;
+            border: none;
+        }
+
         .image-upload-label {
             cursor: pointer;
             display: inline-flex;

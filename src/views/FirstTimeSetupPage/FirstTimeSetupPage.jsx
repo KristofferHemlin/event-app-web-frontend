@@ -23,6 +23,7 @@ const FirstTimeSetupPage = withRouter(({ history }) => {
             key: 'firstName',
             name: 'First Name',
             type: 'text',
+            disabled: false,
             label: 'First Name',
             value: '',
         },
@@ -30,6 +31,7 @@ const FirstTimeSetupPage = withRouter(({ history }) => {
             key: 'lastName',
             name: 'Last Name',
             type: 'text',
+            disabled: false,
             label: 'Last Name',
             value: '',
         },
@@ -37,6 +39,7 @@ const FirstTimeSetupPage = withRouter(({ history }) => {
             key: 'email',
             name: 'Email',
             type: 'text',
+            disabled: false,
             label: 'Email',
             value: '',
         },
@@ -44,6 +47,7 @@ const FirstTimeSetupPage = withRouter(({ history }) => {
             key: 'phone',
             name: 'Phone',
             type: 'text',
+            disabled: false,
             label: 'Phone',
             value: '',
         },
@@ -51,6 +55,7 @@ const FirstTimeSetupPage = withRouter(({ history }) => {
             key: 'company',
             name: 'Company Name',
             type: 'text',
+            disabled: true,
             label: 'Company Name',
             value: '',
         },
@@ -58,6 +63,7 @@ const FirstTimeSetupPage = withRouter(({ history }) => {
             key: 'companyDepartment',
             name: 'Company Department',
             type: 'text',
+            disabled: false,
             label: 'Company Department',
             value: '',
         },
@@ -65,6 +71,7 @@ const FirstTimeSetupPage = withRouter(({ history }) => {
             key: 'password',
             name: 'password',
             type: 'password',
+            disabled: false,
             label: 'Password',
             value: '',
         },
@@ -72,6 +79,7 @@ const FirstTimeSetupPage = withRouter(({ history }) => {
             key: 'rePassword',
             name: 'rePassword',
             type: 'password',
+            disabled: false,
             label: 'Re-type Password',
             value: '',
         },
@@ -151,8 +159,8 @@ const FirstTimeSetupPage = withRouter(({ history }) => {
         fd.append('email',             fields[2].value);
         fd.append('phone',             fields[3].value);
         fd.append('companyDepartment', fields[5].value);
-        fd.append('password', fields[6].value);
-        fd.append('image', currentlySelectedImage);
+        fd.append('password',          fields[6].value);
+        fd.append('image',             currentlySelectedImage);
         
         axios.put(process.env.REACT_APP_API_URL + `/users/${userInfo.id}/firstlogin`, fd)
             .then(res => {
@@ -180,22 +188,26 @@ const FirstTimeSetupPage = withRouter(({ history }) => {
                     id="file"
                     onChange={e => handleImageSelectChange(e.target.files[0]) }
                 />
+                <fieldset disabled={isLoading}>
                 { 
                     fields.map((field, idx) => {
                         return <TextInput
                             key={field.key}
+                            type={field.type}
                             label={field.label}
                             variant="subtle-white"
-                            disabled={true}
+                            disabled={field.disabled}
                             value={field.value}
                             onChange={(e) => handleInputChange(e, idx)}
                         />
                     }) 
                 }
+                </fieldset>
+
                 <BaseButton
                     size="full"
                     variant="primary"
-                    disabled={isSubmitDisabled}
+                    disabled={isSubmitDisabled || isLoading}
                     onClick={() => handleButtonClick()}
                 >
                     {isLoading ? (
