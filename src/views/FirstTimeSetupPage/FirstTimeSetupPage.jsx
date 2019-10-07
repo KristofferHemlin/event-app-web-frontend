@@ -99,15 +99,16 @@ const FirstTimeSetupPage = withRouter(({ history }) => {
 
     useEffect(() => {
         // Shitty setting of the values. Fix this...
-        console.log(userInfo);
         let theFields = [...fields];
         theFields.map(field => {
             for (let prop in userInfo){
                 if (field.key === prop){
                     if (prop === 'company'){
-                       field.value = userInfo[prop].title;
+                       field.value = userInfo[prop].title;   
                     } else {
-                        field.value = userInfo[prop];
+                        if (userInfo[prop] !== null){
+                            field.value = userInfo[prop];
+                        }
                     }
                 }    
             }
