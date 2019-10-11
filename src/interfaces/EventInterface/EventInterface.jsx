@@ -22,23 +22,23 @@ const EventInterface = withRouter(({ history, match }) => {
             key: 'overview',
             title: 'Event Overview',
             routeUrl: `/event/${match.params.eventId}`,
-            icon: '',
+            icon: 'info-circle',
         },
         {
             key: 'participants',
             title: 'Event Participants',
-            icon: '',
+            icon: 'users',
             routeUrl: `/event/${match.params.eventId}/participants`,
         },
         {
             key: 'schedule',
             title: 'Schedule',
-            icon: '',
+            icon: 'calendar-alt',
         },
         {
             key: 'updates',
             title: 'Updates',
-            icon: '',
+            icon: 'comments',
         }
     ]);
 
@@ -50,6 +50,8 @@ const EventInterface = withRouter(({ history, match }) => {
         setCurrentPane(idx);
         history.push(routeUrl);
     }
+
+    
 
     return (
         <div className="dashboard-interface">
@@ -83,7 +85,7 @@ const EventInterface = withRouter(({ history, match }) => {
                               className={currentPane === idx ? 'active' : ''}
                               onClick={() => onFooterNavigation(idx, link.routeUrl)}
                             >
-                                <FontAwesomeIcon icon="info-circle" size="2x" />
+                                <FontAwesomeIcon icon={link.icon} size="2x" />
                                 <span>{link.title}</span>
                             </button>
                         )

@@ -6,6 +6,8 @@ import {
   faInfo,
   faUsers,
   faInfoCircle,
+  faCalendarAlt,
+  faComments,
 } from '@fortawesome/free-solid-svg-icons'
 
 import AppRouter from './router/AppRouter';
@@ -18,7 +20,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-library.add(faUserEdit, faSpinner, faInfo, faUsers, faInfoCircle);
+library.add(faUserEdit, faSpinner, faInfo, faUsers, faInfoCircle, faCalendarAlt, faComments);
 
 function App() {
 
