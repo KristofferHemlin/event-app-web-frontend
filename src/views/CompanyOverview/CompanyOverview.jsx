@@ -9,6 +9,7 @@ import ActionsContextMenu from '../../components/ActionsContextMenu/ActionsConte
 import BaseButton from '../../components/BaseButton/BaseButton';
 import ContextFooter from '../../components/ContextFooter/ContextFooter';
 import EventPane from '../../components/EventPane/EventPane';
+import CompanyMembers from '../../views/CompanyMembers/CompanyMembers';
 import { useStateValue } from '../../components/StateProvider/StateProvider';
 
 const CompanyOverview = () => {
@@ -105,24 +106,10 @@ const CompanyOverview = () => {
             </div>
           </div>
         </div>
-
-        <div className="company-employee-pane">
-          <SectionPaneHeader
-            title="Company Employees"
-          >
-            <BaseButton
-              size="md"
-              variant="primary"
-              buttonType="frame"
-              onClick={() => toggleOverviweContextMenu()}
-            >
-              Action
-            </BaseButton>
-
-          </SectionPaneHeader>
-
-        </div>
+        <CompanyMembers></CompanyMembers>
       </div>
+
+
 
       <ContextFooter>
         <button className={currentPane === 'Company Overview' ? 'active' : '' } onClick={() => setCurrentPane('Company Overview')}>
