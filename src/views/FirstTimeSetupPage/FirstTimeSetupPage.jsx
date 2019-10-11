@@ -162,7 +162,7 @@ const FirstTimeSetupPage = withRouter(({ history }) => {
         fd.append('companyDepartment', fields[5].value);
         fd.append('password',          fields[6].value);
         fd.append('image',             currentlySelectedImage);
-        
+        console.log('fd:', fd);
         axios.put(process.env.REACT_APP_API_URL + `/users/${userInfo.id}/firstlogin`, fd)
             .then(res => {
                 setIsLoading(false);

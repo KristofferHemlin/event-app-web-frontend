@@ -8,7 +8,9 @@ const EventPane = withRouter(({ history, title, linkTo }) => {
         className="event-pane"
         onClick={() => history.push(linkTo) }
         >
-           <h6>{title}</h6>
+            <div className="inner-content">
+                <h6>{title}</h6>
+            </div>
        </div> 
     )
 });

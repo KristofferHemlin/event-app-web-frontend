@@ -1,20 +1,51 @@
 .event-pane {
+    position: relative;
+    overflow: hidden;
     max-width: 500px;
-    min-width: 300px;
-    min-height: 150px;
+    min-height: 200px;
     margin: 20px 0px;
     padding: 20px;
     color: #fff;
     box-sizing: border-box;
     background-color: #4b4a4a;
+    background-image: url('../../assets/images/photo-1533331639-74f1863c7b3c.jpeg');
+    background-position: center;
+    background-size: cover;
     cursor: pointer;
+    transition: 1s all;
     
+    &::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: "";
+        width: 500px;
+        min-height: 200px; 
+        background-color: rgba(63, 63, 63, 0.6);
+    }
 
+    .inner-content {
+        width: 100%;
+        max-width: 500px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        box-sizing: border-box;
+        padding: 0px 20px;
+        z-index: 900;
+        display: flex;
+        height: 200px;
+        justify-content: center;
+        align-items: center;
 
-    h6 {
-        margin: 0;
-        font-size: 16px;
-        border-bottom: 1px solid 
+        h6 {
+            text-align: center;
+            display: inline-block;
+            margin: 0;
+            width: calc(100% - 20px);
+            padding: 10px 0px;
+            font-size: 35px;
+        }
     }
 
 }

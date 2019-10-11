@@ -43,23 +43,11 @@ const CompanyOverview = () => {
     setCurrentPane = 'paneName';
   };
 
-  const submitFile = () => {
-    let fd = new FormData();
-    fd.append('image', currentlySelectedFile)
-    console.log(fd.entries());
-
-    axios.post(process.env.REACT_APP_API_URL + '/users/invite-multiple', fd)
-    .then(res => {
-      console.log(res);
-    })
-    .catch(err => {
-      console.log(err);
-    })
-  };
-
   useEffect(() => {
-    fetchCompanyDetails();
-  },[]);
+    if (userInfo.id){
+      fetchCompanyDetails();
+    }
+  }, [userInfo]);
 
 
   return (

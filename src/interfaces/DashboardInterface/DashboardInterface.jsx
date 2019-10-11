@@ -8,7 +8,7 @@ import { Switch } from 'react-router-dom';
 import CompanyOverview from '../../views/CompanyOverview/CompanyOverview';
 import MyProfilePage from '../../views/MyProfilePage/MyProfilePage';
 import PageNotFound from '../../views/PageNotFound/PageNotFound';
-import EventOverview from '../../views/EventOverview/EventOverview';
+import EventInterface from '../EventInterface/EventInterface';
 
 const Dashboard = () => {
   return (
@@ -30,10 +30,10 @@ const Dashboard = () => {
           </PrivateRoute>
 
           <PrivateRoute
-            exact
             path="/event/:eventId"
-            component={EventOverview}>
+            component={EventInterface}>
           </PrivateRoute>
+
 
           <PrivateRoute
             component={PageNotFound}>

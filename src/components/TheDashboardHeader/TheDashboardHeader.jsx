@@ -5,8 +5,8 @@ import { useStateValue } from '../StateProvider/StateProvider';
 
 import BaseButton from '../../components/BaseButton/BaseButton';
 import background from '../../assets/images/login-bg.png';
+import CurrentUserInfo from '../CurrentUserInfo/CurrentUserInfo';
 import { Link } from 'react-router-dom';
-
 const TheDashboardHeader = withRouter(({ history }) => {
 
   const [{ userInfo }] = useStateValue();
@@ -20,10 +20,7 @@ const TheDashboardHeader = withRouter(({ history }) => {
   return (
     <div className="dashboard-header" style={{backgroundImage: `url(${background})`}}>
       <div className="left-side">
-        <h1>
-          {userInfo.firstName + " " + userInfo.lastName + " @ "}
-          <Link to="/">{userInfo.company ? userInfo.company.title : 'sfd'}</Link>
-        </h1>
+        <CurrentUserInfo/>
       </div>
       <div className="right-side">
         <BaseButton

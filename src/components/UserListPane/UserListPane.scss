@@ -1,0 +1,36 @@
+.user-list-pane {
+    min-width: 250px;
+    background-color: #fff;
+    box-sizing: border-box;
+    padding: 5px;
+    border: 1px solid darkgrey;
+    border-radius: 3px;
+    margin: 10px 0px;
+    display: flex;
+    cursor: pointer;
+
+    .left-block {
+        display: inline-flex;
+        width: 80px;
+        height: 80px;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          height: 65px;
+          width: 65px;
+          border-radius: 50px;
+          background-color: black;
+        }
+
+    }
+
+    .right-block {
+        width: 150px;
+        box-sizing: border-box;
+        padding: 15px;
+        display: inline-flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+}

@@ -17,6 +17,7 @@ import FirstTimeSetupPage from '../views/FirstTimeSetupPage/FirstTimeSetupPage';
 
 // State
 import { useStateValue } from '../components/StateProvider/StateProvider';
+import EventInterface from '../interfaces/EventInterface/EventInterface';
 
 
 

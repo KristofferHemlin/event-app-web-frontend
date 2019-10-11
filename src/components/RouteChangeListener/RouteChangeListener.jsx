@@ -36,8 +36,10 @@ const RouteChangeListener = withRouter(({ history, location, children }) => {
         type: 'ChangeLoginStatus',
         newStatus: true
       })
+      console.log('trying to get current user!')
       axios.get(process.env.REACT_APP_API_URL + '/users/me')
       .then(user => {
+        console.log(user);
         dispatch({
           type: 'UpdateUserInformation',
           newUserInfo: { ...user.data },
