@@ -44,7 +44,7 @@ const EventInterface = withRouter(({ history, match }) => {
 
     useEffect(() => {
         console.log(match)
-    }, [])
+    }, [match])
 
     const onFooterNavigation = (idx, routeUrl) => {
         setCurrentPane(idx);
@@ -82,7 +82,7 @@ const EventInterface = withRouter(({ history, match }) => {
                         return (
                             <button
                               key={idx}
-                              className={currentPane === idx ? 'active' : ''}
+                              className={link.routeUrl === match.url ? 'active' : ''}
                               onClick={() => onFooterNavigation(idx, link.routeUrl)}
                             >
                                 <FontAwesomeIcon icon={link.icon} size="2x" />

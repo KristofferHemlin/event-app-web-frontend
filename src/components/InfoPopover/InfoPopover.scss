@@ -1,0 +1,59 @@
+.info-icon-container {
+    display: inline-block;
+    position: relative;
+
+    .info-icon {
+    position: relative;
+    margin: 0px 10px;
+    width: 22px;
+    height: 22px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #4c92bf;
+    vertical-align: middle;
+    color: #fff;
+    border-radius: 15px;
+    font-size: 12px;
+    }
+
+    .popover-container {
+    color: #fff;
+    position: relative;
+    top: 20px;
+    width: 300px;
+    background-color: #76b462;
+    min-width: 150px;
+    max-width: 500px;
+    box-sizing: border-box;
+    padding: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    }
+
+    &::after {
+        position: relative;
+        min-width: 300px;
+        max-width: 400px;
+        color: white;
+        box-sizing: border-box;
+        padding: 20px;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        content: attr(title);
+        max-width: 300px;
+        background-color: #3a7eb6;
+        opacity: 0;
+        transition: 0.5s all;
+        z-index: -10;
+    }
+
+    &:hover::after {
+        top: 30px;
+        opacity: 1;
+        z-index: 900;
+    }
+
+}
+
